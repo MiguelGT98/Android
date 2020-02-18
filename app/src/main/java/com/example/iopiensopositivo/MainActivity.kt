@@ -138,49 +138,52 @@ class MainActivity : AppCompatActivity() {
         return messages[position]
     }
 
-    fun getNextText(): String{
-        if(position + 1 > messages.size - 1){
+    fun getNextText(): String {
+        if (position + 1 < messages.size) {
             position++
-        }else{
+        } else {
             position = 0
         }
 
         return messages[position]
     }
 
-    fun getPreviousText():String{
-        if(position - 1 > 0){
+    fun getPreviousText(): String {
+        if (position - 1 >= 0) {
             position--
-        }else{
+        } else {
             position = messages.size - 1
         }
 
         return messages[position]
     }
 
-    fun getTextAt(view: View):String{
-        if(editText.text.toString().toInt() < 0 || editText.text.toString().toInt() > messages.size - 1){
+    fun getTextAt(view: View): String {
+        if (editText.text.toString().toInt() < 0 || editText.text.toString().toInt() > messages.size - 1) {
             Toast.makeText(this, "Posición no disponible", Toast.LENGTH_LONG).show()
-            return messages[position]
+        } else {
+            position = editText.text.toString().toInt()
         }
 
-        return messages[editText.text.toString().toInt()]
+        return messages[position]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        textView.text = messages[position]
     }
 
-    fun textAt(view: View){
+    fun textAt(view: View) {
         textView.text = getTextAt(view)
     }
 
-    fun nextText(view: View){
+    fun nextText(view: View) {
         textView.text = getNextText()
     }
 
-    fun prevText(view: View){
+    fun prevText(view: View) {
         textView.text = getPreviousText()
     }
 
