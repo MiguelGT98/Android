@@ -1,4 +1,4 @@
-# Mobile Application Development Project on Android
+# Mobile Application Development Projects on Android
 The following projects are a part of an introductory course to Android development
 
 ## [Io Pienso Positivo](../../tree/IoPiensoPositivo)
