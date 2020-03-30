@@ -19,6 +19,6 @@ class Country {
   }
 
   getImageUrl() {
-    return "https://www.countryflags.io/$imgCode/flat/64.png";
+    return "https://cdn.countryflags.com/thumbs/${name.toLowerCase().replaceAll(RegExp(' +'), '-')}/flag-800.png";
   }
 }
