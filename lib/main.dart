@@ -1,4 +1,8 @@
+import 'package:WorldPovertyApp/models/Country.dart';
+import 'package:WorldPovertyApp/screens/IndividualCountry.dart';
 import 'package:flutter/material.dart';
+
+Country mex = new Country("MEX", "MX", "Mexico");
 
 void main() {
   runApp(MyApp());
@@ -93,13 +97,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            IndividualCountryScreen(
+              country: mex,
+            )
           ],
         ),
       ),
