@@ -6,3 +6,6 @@ Introduction app to Android development with buttons and associated actions to t
 
 ## [BMI calculator](../../tree/imc)
 Quick app to calculate BMI.
+
+## [MCU app](../../tree/MCU)
+Quick app to show Marvel comics characters using a list view and pagination.
