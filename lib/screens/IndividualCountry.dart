@@ -18,7 +18,12 @@ class _IndividualCountryScreenState extends State<IndividualCountryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: null),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: Text(widget.country.name),
         actions: <Widget>[],
       ),
@@ -34,6 +39,17 @@ class _IndividualCountryScreenState extends State<IndividualCountryScreen> {
                     fit: BoxFit.fill,
                     width: double.infinity,
                   ),
+                  new Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      child: Text(
+                        widget.country.incomeGroup,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600,
+                            color: widget.country.getTextColor()),
+                      )),
                   new Expanded(
                       child: FutureBuilder(
                           future: widget.country.fetchData(),
@@ -70,26 +86,6 @@ class _IndividualCountryScreenState extends State<IndividualCountryScreen> {
         ),
       ),
     );
-
-    return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: null),
-          centerTitle: true,
-          title: Row(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(right: 12),
-                child: Image.network(
-                  widget.country.getImageUrl(),
-                ),
-              ),
-              Text(widget.country.name)
-            ],
-            mainAxisSize: MainAxisSize.min,
-          ),
-          actions: <Widget>[],
-        ),
-        body: Center());
   }
 }
 

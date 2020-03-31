@@ -1,8 +1,9 @@
+import 'package:WorldPovertyApp/models/Countries.dart';
 import 'package:WorldPovertyApp/models/Country.dart';
 import 'package:WorldPovertyApp/screens/IndividualCountry.dart';
 import 'package:flutter/material.dart';
 
-Country country = new Country("MEX", "MX", "Mexico");
+Countries c = new Countries();
 
 void main() {
   runApp(MyApp());
@@ -26,13 +27,18 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(
+        title: 'Flutter Demo Home Page',
+        c: c,
+      ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  final Countries c;
+
+  MyHomePage({Key key, this.title, this.c}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -71,8 +77,61 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return IndividualCountryScreen(
-      country: country,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("World Poverty App"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              child: Column(
+                children: <Widget>[
+                  new Expanded(
+                      child: FutureBuilder(
+                          future: widget.c.fetchData(),
+                          builder:
+                              (BuildContext context, AsyncSnapshot snapshot) {
+                            if (snapshot.data == null) {
+                              return Container(
+                                child: Center(
+                                  child: Text("Loading"),
+                                ),
+                              );
+                            }
+
+                            List<Country> countries =
+                                c.generateCountryList(snapshot.data);
+
+                            return ListView.builder(
+                              shrinkWrap: true,
+                              itemBuilder: (BuildContext context, int index) {
+                                return ListTile(
+                                  leading: Image.network(
+                                    countries[index].getThumbImageUrl(),
+                                  ),
+                                  title: Text(countries[index].name),
+                                  subtitle: Text(countries[index].incomeGroup),
+                                  onTap: () {
+                                    Navigator.push(context,
+                                        new MaterialPageRoute(
+                                            builder: (context) {
+                                      return IndividualCountryScreen(
+                                          country: countries[index]);
+                                    }));
+                                  },
+                                );
+                              },
+                              itemCount: countries.length,
+                            );
+                          }))
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
