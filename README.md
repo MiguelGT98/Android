@@ -1,16 +1,7 @@
 # WorldPovertyApp
 
-A new Flutter project.
+App that displays every country in the world along with their Income group and GDP over the years. Used [worldbank's public api](https://datahelpdesk.worldbank.org/knowledgebase/articles/889386-developer-information-overview) to get the economic data and [https://www.countryflags.com/](https://www.countryflags.com/) to get each country's flag.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Sometimes, an image won't load because of a 404 error. If the app freezes just resume the app by skipping the error on flutter debug tools.
