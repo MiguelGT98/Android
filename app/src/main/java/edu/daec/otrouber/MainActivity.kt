@@ -17,10 +17,17 @@ class MainActivity : AppCompatActivity() {
         //despensaFirebase.cargaFirebaseDummy()
     }
 
-
     fun agregaItem(view: View){
         despensaFirebase.cargaUnItem(
             Item("","Leche", 15 ))
+    }
+
+    fun cargaItems(view: View){
+        despensaFirebase.obtenTodos()
+    }
+
+    fun borrarItems(view: View){
+        despensaFirebase.borraTodo();
     }
 
     override fun onResume() {

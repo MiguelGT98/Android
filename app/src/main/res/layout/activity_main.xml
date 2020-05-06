@@ -6,16 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/agrega_uno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="agregaItem"
-        android:text="Agrega"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <fragment
+        android:id="@+id/fragment"
+        android:name="edu.daec.otrouber.fragments.AltaFragment"
+        android:layout_width="320dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323" />
+        tools:layout="@layout/fragment_alta" />
+
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="edu.daec.otrouber.fragments.DeleteFragment"
+        android:layout_width="317dp"
+        android:layout_height="143dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment2"
+        tools:layout="@layout/fragment_delete" />
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="edu.daec.otrouber.fragments.ListaDespensaFragment"
+        android:layout_width="320dp"
+        android:layout_height="208dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment"
+        tools:layout="@layout/fragment_lista_despensa" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
