@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -26,6 +27,15 @@ class MapaFragment : Fragment(), OnMapReadyCallback {
         map_view.getMapAsync(this)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        lista.setOnClickListener {
+            view.findNavController().navigate(R.id.despensaFragment)
+        }
+        agregar.setOnClickListener {
+            view.findNavController().navigate(R.id.altaFragment)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

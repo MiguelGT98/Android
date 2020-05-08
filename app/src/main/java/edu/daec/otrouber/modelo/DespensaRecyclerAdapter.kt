@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import edu.daec.otrouber.R
 import kotlinx.android.synthetic.main.*
@@ -20,6 +21,9 @@ class DespensaRecyclerAdapter( private val list: List<Item>)
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item: Item = list[position]
         holder.bind(item)
+        holder.itemView.setOnClickListener {
+            it.findNavController().navigate(R.id.altaFragment)
+        }
     }
 
     override fun getItemCount(): Int = list.size

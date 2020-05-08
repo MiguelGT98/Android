@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mapaFragment">
+
+    <fragment
+        android:id="@+id/mapaFragment"
+        android:name="edu.daec.otrouber.MapaFragment"
+        android:label="fragment_mapa"
+        tools:layout="@layout/fragment_mapa" >
+        <action
+            android:id="@+id/action_mapaFragment_to_altaFragment"
+            app:destination="@id/altaFragment" />
+        <action
+            android:id="@+id/action_mapaFragment_to_despensaFragment"
+            app:destination="@id/despensaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/altaFragment"
+        android:name="edu.daec.otrouber.AltaFragment"
+        android:label="fragment_alta"
+        tools:layout="@layout/fragment_alta" >
+        <action
+            android:id="@+id/action_altaFragment_to_mapaFragment"
+            app:destination="@id/mapaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/despensaFragment"
+        android:name="edu.daec.otrouber.DespensaFragment"
+        android:label="fragment_despensa"
+        tools:layout="@layout/fragment_despensa" >
+        <action
+            android:id="@+id/action_despensaFragment_to_altaFragment"
+            app:destination="@id/altaFragment" />
+        <action
+            android:id="@+id/action_despensaFragment_to_detalleFragment"
+            app:destination="@id/detalleFragment" />
+        <action
+            android:id="@+id/action_despensaFragment_to_mapaFragment"
+            app:destination="@id/mapaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleFragment"
+        android:name="edu.daec.otrouber.DetalleFragment"
+        android:label="fragment_detalle"
+        tools:layout="@layout/fragment_detalle" >
+        <action
+            android:id="@+id/action_detalleFragment_to_altaFragment"
+            app:destination="@id/altaFragment" />
+    </fragment>
+</navigation>

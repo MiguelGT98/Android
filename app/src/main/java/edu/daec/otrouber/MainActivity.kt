@@ -9,27 +9,12 @@ import edu.daec.otrouber.modelo.DespensaFirebase
 import edu.daec.otrouber.modelo.Item
 
 class MainActivity : AppCompatActivity() {
-
-    private val despensaFirebase : DespensaFirebase = DespensaFirebase()
-    private var itemLast: Item = Item()
-    private var mutableList: MutableList<Item> = mutableListOf<Item>()
-    override fun onCreate(savedInstanceState: Bundle?) {
+     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
 
     }
 
-
-    fun agregaItem(view: View){
-
-        itemLast = despensaFirebase.cargaUnItem(
-            Item("","Leche", 15 ))
-        despensaFirebase.borraUnItem(itemLast)
-    }
-
-    fun consulta(view: View){
-        despensaFirebase.obtenTodos()
-    }
     override fun onResume() {
         super.onResume()
     }
