@@ -15,3 +15,6 @@ App that displays every country in the world along with their Income group and G
 
 ## [Otro Uber](../../tree/otro-uber)
 App using firebase (You need to provide your own google-services.json)
+
+## [Otro Uber with nav graph](../../tree/otro-uber-nav-graph)
+App using firebase (You need to provide your own google-services.json and change the your own maps API on res/values/google_maps_api.xml)
