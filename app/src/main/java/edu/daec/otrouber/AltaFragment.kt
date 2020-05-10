@@ -28,15 +28,24 @@ class AltaFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         send_button.setOnClickListener {
             val despensaFirebase = DespensaFirebase()
             val item = Item("", description_edittext.text.toString(),cantidad_edittext.text.toString().toInt() )
             despensaFirebase.cargaUnItem(item)
-            context!!.hideKeyboard(it)
-            }
+            hideKeyboard()
+        }
 
     }
 
+
+    fun Fragment.hideKeyboard() {
+        view?.let { activity?.hideKeyboard(it) }
+    }
+
+    fun Activity.hideKeyboard() {
+        hideKeyboard(currentFocus ?: View(this))
+    }
 
     fun Context.hideKeyboard(view: View) {
         val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager

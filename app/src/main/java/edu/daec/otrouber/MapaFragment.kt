@@ -6,17 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_mapa.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class MapaFragment : Fragment(), OnMapReadyCallback {
+class MapaFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private lateinit var googleMap: GoogleMap
 
@@ -48,6 +50,7 @@ class MapaFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(map: GoogleMap?) {
         map?.let {
             googleMap = it
+            googleMap.setOnMarkerClickListener(this)
 
             val cdmx = LatLng(19.432608, -99.133209)
             googleMap.addMarker(
@@ -64,6 +67,12 @@ class MapaFragment : Fragment(), OnMapReadyCallback {
         }
 
 
+    }
+
+    override fun onMarkerClick(p0: Marker?): Boolean {
+        findNavController().navigate(R.id.despensaFragment)
+
+        return true
     }
 
 }

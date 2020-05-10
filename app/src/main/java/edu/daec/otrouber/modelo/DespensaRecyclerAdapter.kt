@@ -22,7 +22,7 @@ class DespensaRecyclerAdapter( private val list: List<Item>)
         val item: Item = list[position]
         holder.bind(item)
         holder.itemView.setOnClickListener {
-            it.findNavController().navigate(R.id.altaFragment)
+            it.findNavController().navigate(R.id.detalleFragment)
         }
     }
 
