@@ -53,7 +53,7 @@ class DespensaFragment : Fragment() {
                     list.add(product!!)
 
                 }
-                list_recycler_view.adapter = DespensaRecyclerAdapter(list)
+                list_recycler_view?.adapter = DespensaRecyclerAdapter(list)
             }
 
 
